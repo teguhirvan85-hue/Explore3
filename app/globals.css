@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-surface-0 text-ink-900 font-sans;
+  }
+
+  ::selection {
+    background: rgba(0, 153, 255, 0.18);
+  }
+}
+
+@layer components {
+  /* Glassy pill button effect — matches the inner-shadow style on Home Dashboard buttons */
+  .btn-glass-white {
+    box-shadow:
+      inset 4px 0 16px rgba(255, 255, 255, 1),
+      inset -4px 0 16px rgba(255, 255, 255, 1),
+      0 4px 4px rgba(0, 0, 0, 0.06);
+  }
+
+  .btn-glass-brand {
+    box-shadow:
+      inset 4px 0 16px rgba(255, 255, 255, 0.35),
+      inset -4px 0 16px rgba(0, 0, 0, 0.12),
+      0 4px 12px rgba(0, 153, 255, 0.2);
+  }
+}
+
+@layer utilities {
+  .anim-toast {
+    animation: toast-slide-in 200ms ease-out;
+  }
+  .anim-dialog-overlay {
+    animation: fade-in 150ms ease-out;
+  }
+  .anim-dialog {
+    animation: dialog-zoom-in 180ms ease-out;
+  }
+  @keyframes toast-slide-in {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes dialog-zoom-in {
+    from {
+      opacity: 0;
+      transform: scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
